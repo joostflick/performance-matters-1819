@@ -1,0 +1,31 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body class="container">
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="cards">
+        <% names.forEach(name => { %>
+          <div class="card">
+          <p><%= name.name %> <%= name.insult %></p>
+          <a href="/details/<%=name.id%>">
+          Check out how to contact this user
+          </a>
+          </div>
+
+        <% }) %>
+      </div>
+    </main>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>
