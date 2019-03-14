@@ -10,19 +10,19 @@
       <% include ../partials/header %>
     </header>
 
-    <main>
+    <div>
       <div class="cards">
         <% names.forEach(name => { %>
+        <a href="/details/<%=name.id%>">
           <div class="card">
-          <p><%= name.name %> <%= name.insult %></p>
-          <a href="/details/<%=name.id%>">
-          Check out how to contact this user
-          </a>
+          <h2><%= name.name %> <%= name.insult %></h2>
+          <p>Click to contact this user </p>
           </div>
+          </a>
 
         <% }) %>
       </div>
-    </main>
+    </div>
 
     <footer>
       <% include ../partials/footer %>

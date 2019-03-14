@@ -1,12 +1,11 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   margin: 0;
+  background-color: #110e16;
 }
 .cards {
   display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: auto;
 
   grid-gap: 1rem;
@@ -15,20 +14,106 @@ body {
 }
 
 .card {
-  border: 2px solid #e7e7e7;
-
+  border: 3px solid #e7e7e7;
+  background-color: white;
   border-radius: 4px;
 
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 25vh;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transition: 0.4s;
+  border-color: orange;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cards {
+  margin-top: 15vh;
+  transition: 0.4s;
+}
+
+.card > h2 {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.card > p {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.detail {
+  border: 3px solid orange;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 15vh;
+  padding: 0.5rem;
+  transition: 0.4s;
+  width: 80vw;
+}
+
+main {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user > a {
+  color: orange;
+}
+
+.user > p > a {
+  color: orange;
 }
 
 nav {
-  background-color: grey;
+  position: fixed;
+  top: 0;
+  height: 10vh;
+  width: 100%;
+  align-items: center;
+  background-color: #110e16;
   font-size: 2em;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav > a {
+.menu {
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+nav > .menu > a {
   padding: 1rem;
+  color: white;
+}
+
+nav > .menu > a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: orange;
+}
+
+nav > h1 {
+  color: white;
+  margin: 0;
+  margin-left: 1rem;
 }

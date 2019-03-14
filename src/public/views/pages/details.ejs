@@ -12,14 +12,10 @@
 
     <main>
       <div class="detail">
-        <h1>Dit is de details page</h1>
-        <p><%= data.name %></p>
-
         <div class="user">
-     <a href="/">Back to list</a>
+        <h2><%= data.name %></h2>
           <img class="profilepic" src=<%=data.picture.large%>> </img>
-        <p><%= data.name %> <%= data.lastName %></p>
-        <p><%= data.insult %></p>
+        <p><%= data.name %> <%= data.lastName %> <%= data.insult %></p>
         <p>Phone number: <a href="tel:<%= data.cellphone %>"> <%= data.cellphone %></a></p>
         <p>Directly insult this user via email: </p>
         <a href="mailto:<%= data.email %>?subject=<%= data.name %> <%= data.insult %>"><%= data.email %></a>
