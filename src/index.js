@@ -6,6 +6,12 @@ const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
 app.use(express.static(path.join(__dirname, '/public/')))
 
+// app.use(function(request, response) {
+//   if (!request.secure) {
+//     response.redirect('https://' + request.headers.host + request.url)
+//   }
+// })
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/public/views'))
 app.get('/', (req, res) =>
@@ -24,6 +30,11 @@ app.get('/details/:id', (req, res) =>
     .getDetails(req.params.id)
     .then(data => res.render('pages/details', { data: data[req.params.id] }))
 )
+app.get('*', function(req, res) {
+  res
+    .status(404)
+    .send('404 - This page can not be found, maybe try something else?')
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
