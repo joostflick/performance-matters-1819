@@ -16,7 +16,7 @@ gulp.task('styles', function() {
       // Minify the file
       .pipe(csso())
       // Output
-      .pipe(gulp.dest('./dist/styles'))
+      .pipe(gulp.dest('./dist/public/styles'))
   )
 })
 
@@ -41,7 +41,7 @@ gulp.task('pages', function() {
   return gulp
     .src('src/public/views/**/*.ejs')
     .pipe(minifyejs())
-    .pipe(gulp.dest('dist/views'))
+    .pipe(gulp.dest('dist/public/views'))
 })
 
 // Clean output directory
