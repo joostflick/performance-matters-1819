@@ -1,22 +1,18 @@
 'use strict'
-
-var autoprefixer = require('gulp-autoprefixer')
 var csso = require('gulp-csso')
 var del = require('del')
 var gulp = require('gulp')
-var htmlmin = require('gulp-htmlmin')
 var runSequence = require('run-sequence')
-var sass = require('gulp-sass')
 var uglify = require('gulp-uglify')
 var minifyejs = require('gulp-minify-ejs')
+var gutil = require('gulp-util')
+const minify = require('gulp-babel-minify')
 
 // Gulp task to minify CSS files
 gulp.task('styles', function() {
   return (
     gulp
       .src('./src/public/styles/style.css')
-      // Auto-prefix css styles for cross browser compatibility
-      .pipe(autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }))
       // Minify the file
       .pipe(csso())
       // Output
@@ -24,17 +20,22 @@ gulp.task('styles', function() {
   )
 })
 
-// Gulp task to minify JavaScript files
-gulp.task('scripts', function() {
-  return (
-    gulp
-      .src('./src/*.js')
-      // Minify the file
-      .pipe(uglify())
-      // Output
-      .pipe(gulp.dest('./dist/js'))
-  )
-})
+// Gulp task to minify and babel JavaScript files
+gulp.task('scripts', () =>
+  gulp
+    .src('./src/index.js')
+    .pipe(
+      minify({
+        mangle: {
+          keepClassName: true
+        }
+      })
+    )
+    .on('error', function(err) {
+      gutil.log(gutil.colors.red('[Error]'), err.toString())
+    })
+    .pipe(gulp.dest('./dist'))
+)
 
 gulp.task('pages', function() {
   return gulp
