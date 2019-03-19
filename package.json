@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "nodemon": "nodemon ./src/index.js",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "startprod": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
