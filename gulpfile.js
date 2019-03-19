@@ -37,6 +37,7 @@ gulp.task('scripts', () =>
     .pipe(gulp.dest('./dist'))
 )
 
+// minify ejs files
 gulp.task('pages', function() {
   return gulp
     .src('src/public/views/**/*.ejs')
