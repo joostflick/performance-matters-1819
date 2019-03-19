@@ -3,6 +3,7 @@ const path = require('path')
 const app = express()
 const port = 3000
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+const shrinkRay = require('shrink-ray-current')
 
 app.use(express.static(path.join(__dirname, '/public/')))
 
@@ -11,6 +12,16 @@ app.use(express.static(path.join(__dirname, '/public/')))
 //     response.redirect('https://' + request.headers.host + request.url)
 //   }
 // })
+
+app.use(
+  shrinkRay({
+    cache: () => false,
+    cacheSize: false,
+    filter: () => true,
+    brotli: { quality: 4 },
+    zlib: { level: 6 }
+  })
+)
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/public/views'))
