@@ -23,7 +23,7 @@ gulp.task('styles', function() {
 // Send font to dist
 gulp.task('font', function() {
   return gulp
-    .src('./src/public/Ubuntu/Ubuntu-regular.ttf')
+    .src('./src/public/Ubuntu/Ubuntu-regular.woff2')
     .pipe(gulp.dest('./dist/public/Ubuntu'))
 })
 
