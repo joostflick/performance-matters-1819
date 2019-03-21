@@ -20,6 +20,13 @@ gulp.task('styles', function() {
   )
 })
 
+// Send font to dist
+gulp.task('font', function() {
+  return gulp
+    .src('./src/public/Ubuntu/Ubuntu-regular.ttf')
+    .pipe(gulp.dest('./dist/public/Ubuntu'))
+})
+
 // Gulp task to minify and babel JavaScript files
 gulp.task('scripts', () =>
   gulp
@@ -49,5 +56,5 @@ gulp.task('clean', () => del(['dist']))
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function() {
-  runSequence('styles', 'scripts', 'pages')
+  runSequence('styles', 'scripts', 'pages', 'font')
 })
