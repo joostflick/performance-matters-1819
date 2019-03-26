@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body class="container">
+    <header>
+      <% include ../partials/header %>
+    </header>
+<% console.log(favorites)%>
+<% console.log(names[0])%>
+<div class="cards">
+<% favorites.forEach(favorite => {%>
+<% console.log(names[favorite])%>
+<a href="/details/<%= favorite %>">
+          <div class="card">
+  
+          <h2><%= names[favorite].name %> <%= names[favorite].lastName %></h2>
+          <p>Click to contact this user </p>
+          
+          </div>
+          </a>
+<% }) %>
+</div>
+<footer>
+<% include ../partials/footer %>
+</footer>
+</body>
+</html>

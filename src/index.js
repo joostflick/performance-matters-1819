@@ -15,8 +15,8 @@ app.use(express.static(path.join(__dirname, '/public/')))
 
 app.use(
   shrinkRay({
-    cache: () => false,
-    cacheSize: false,
+    cache: () => true,
+    cacheSize: '128mb',
     filter: () => true,
     brotli: { quality: 4 },
     zlib: { level: 6 }
@@ -41,6 +41,32 @@ app.get('/details/:id', (req, res) =>
     .getDetails(req.params.id)
     .then(data => res.render('pages/details', { data: data[req.params.id] }))
 )
+app.get('/favorites', (req, res) => {
+  var fav = favorites.display()
+  console.log(fav)
+  api.getAll().then(data => {
+    const names = data[0]
+    const insults = data[1]
+    for (let i = 0; i < insults.length; i++) {
+      names[i].insult = insults[i]
+      names[i].id = i
+    }
+    res.render('pages/favorites', { favorites: fav, names: names })
+  })
+})
+app.get('/favorites/:id', (req, res) => {
+  var fav = favorites.add(req.params.id)
+  api.getAll().then(data => {
+    const names = data[0]
+    const insults = data[1]
+    for (let i = 0; i < insults.length; i++) {
+      names[i].insult = insults[i]
+      names[i].id = i
+    }
+    res.render('pages/favorites', { favorites: fav, names: names })
+  })
+})
+
 app.get('*', function(req, res) {
   res
     .status(404)
@@ -118,4 +144,19 @@ const api = {
 
     request.send()
   })
+}
+
+const favoritesArray = []
+const favorites = {
+  add: id => {
+    if (favoritesArray.includes(id)) {
+      return favoritesArray
+    } else {
+      favoritesArray.push(id)
+      return favoritesArray
+    }
+  },
+  display: () => {
+    return favoritesArray
+  }
 }

@@ -15,6 +15,7 @@
         <div class="user">
         <h2><%= data.name %></h2>
           <img class="profilepic" src=<%=data.picture.large%>> </img>
+          <a href="/favorites/<%=data.id%>" class='favorite'>⭐</a>
         <p><%= data.name %> <%= data.lastName %> <%= data.insult %></p>
         <p>Phone number: <a href="tel:<%= data.cellphone %>"> <%= data.cellphone %></a></p>
         <p>Directly insult this user via email: </p>
