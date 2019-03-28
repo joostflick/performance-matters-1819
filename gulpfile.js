@@ -27,6 +27,18 @@ gulp.task('font', function() {
     .pipe(gulp.dest('./dist/public/Ubuntu'))
 })
 
+// Send sw to dist
+gulp.task('sw', function() {
+  return gulp.src('./src/public/sw.js').pipe(gulp.dest('./dist/public'))
+})
+
+// Send manifest to dist
+gulp.task('manifest', function() {
+  return gulp
+    .src('./src/public/manifest/*')
+    .pipe(gulp.dest('./dist/public/manifest'))
+})
+
 // Gulp task to minify and babel JavaScript files
 gulp.task('scripts', () =>
   gulp
@@ -57,5 +69,5 @@ gulp.task('clean', () => del(['dist']))
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function() {
-  runSequence('styles', 'scripts', 'pages', 'font')
+  runSequence('styles', 'scripts', 'pages', 'font', 'sw', 'manifest')
 })

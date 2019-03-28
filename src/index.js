@@ -12,6 +12,10 @@ app.use(express.static(path.join(__dirname, '/public/')))
 //     response.redirect('https://' + request.headers.host + request.url)
 //   }
 // })
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60)
+  next()
+})
 
 app.use(
   shrinkRay({
@@ -41,6 +45,8 @@ app.get('/details/:id', (req, res) =>
     .getDetails(req.params.id)
     .then(data => res.render('pages/details', { data: data[req.params.id] }))
 )
+app.get('/offline', (req, res) => res.render('pages/offline'))
+
 app.get('/clearfavorites', (req, res) => {
   favorites.clear()
   res.redirect('/favorites')
@@ -68,6 +74,10 @@ app.get('/favorites/:id', (req, res) => {
     }
     res.render('pages/favorites', { favorites: fav, names: names })
   })
+})
+
+app.get('/about', (req, res) => {
+  res.render('pages/about')
 })
 
 app.get('*', function(req, res) {
@@ -153,7 +163,6 @@ const favoritesArray = []
 const favorites = {
   add: id => {
     if (favoritesArray.includes(id)) {
-      console.log('includes')
       return favoritesArray
     } else {
       favoritesArray.push(id)
