@@ -37,6 +37,7 @@ Use and install this project by downloading it and running:
 - Minifying my ejs, javascript and html files
 - Optimizing the google font by selfhosting it and swapping fonts once it has been loaded
 - Turning on brotli compression (best performance on quality 4)
+- Caching using service worker
 
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
 
