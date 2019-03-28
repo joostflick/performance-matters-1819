@@ -39,3 +39,10 @@ Use and install this project by downloading it and running:
 - Turning on brotli compression (best performance on quality 4)
 
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+
+## TO DO
+
+- favorite insults
+- benchmarks readme
+- clientside javascript
+- share
