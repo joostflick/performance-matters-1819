@@ -8,15 +8,18 @@
     <header>
       <% include ../partials/header %>
     </header>
-<% console.log(favorites)%>
-<% console.log(names[0])%>
 <div class="cards">
+<a href="/clearfavorites">
+<div class="card">
+<h2>Clear all favorites</h2>
+</div>
+</a>
 <% favorites.forEach(favorite => {%>
-<% console.log(names[favorite])%>
 <a href="/details/<%= favorite %>">
+
           <div class="card">
   
-          <h2><%= names[favorite].name %> <%= names[favorite].lastName %></h2>
+          <h2><%= names[favorite].name + " " + names[favorite].lastName %></h2>
           <p>Click to contact this user </p>
           
           </div>

@@ -41,9 +41,12 @@ app.get('/details/:id', (req, res) =>
     .getDetails(req.params.id)
     .then(data => res.render('pages/details', { data: data[req.params.id] }))
 )
+app.get('/clearfavorites', (req, res) => {
+  favorites.clear()
+  res.redirect('/favorites')
+})
 app.get('/favorites', (req, res) => {
   var fav = favorites.display()
-  console.log(fav)
   api.getAll().then(data => {
     const names = data[0]
     const insults = data[1]
@@ -150,6 +153,7 @@ const favoritesArray = []
 const favorites = {
   add: id => {
     if (favoritesArray.includes(id)) {
+      console.log('includes')
       return favoritesArray
     } else {
       favoritesArray.push(id)
@@ -157,6 +161,10 @@ const favorites = {
     }
   },
   display: () => {
+    return favoritesArray
+  },
+  clear: () => {
+    favoritesArray.length = 0
     return favoritesArray
   }
 }
