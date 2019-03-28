@@ -32,6 +32,11 @@ gulp.task('sw', function() {
   return gulp.src('./src/public/sw.js').pipe(gulp.dest('./dist/public'))
 })
 
+// Send registersw to dist
+gulp.task('regsw', function() {
+  return gulp.src('./src/public/registersw.js').pipe(gulp.dest('./dist/public'))
+})
+
 // Send manifest to dist
 gulp.task('manifest', function() {
   return gulp
@@ -69,5 +74,5 @@ gulp.task('clean', () => del(['dist']))
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function() {
-  runSequence('styles', 'scripts', 'pages', 'font', 'sw', 'manifest')
+  runSequence('styles', 'scripts', 'pages', 'font', 'sw', 'manifest', 'regsw')
 })

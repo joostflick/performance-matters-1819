@@ -12,10 +12,10 @@ app.use(express.static(path.join(__dirname, '/public/')))
 //     response.redirect('https://' + request.headers.host + request.url)
 //   }
 // })
-app.use((req, res, next) => {
-  res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60)
-  next()
-})
+// app.use((req, res, next) => {
+//   res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60)
+//   next()
+// })
 
 app.use(
   shrinkRay({
@@ -40,6 +40,20 @@ app.get('/', (req, res) =>
     res.render('pages/index', { names: names })
   })
 )
+app.get('/clearfavorites', (req, res) => {
+  favorites.clear()
+  var fav = favorites.display()
+  api.getAll().then(data => {
+    const names = data[0]
+    const insults = data[1]
+    for (let i = 0; i < insults.length; i++) {
+      names[i].insult = insults[i]
+      names[i].id = i
+    }
+    res.render('pages/favorites', { favorites: fav, names: names })
+  })
+})
+
 app.get('/details/:id', (req, res) =>
   api
     .getDetails(req.params.id)
@@ -47,10 +61,6 @@ app.get('/details/:id', (req, res) =>
 )
 app.get('/offline', (req, res) => res.render('pages/offline'))
 
-app.get('/clearfavorites', (req, res) => {
-  favorites.clear()
-  res.redirect('/favorites')
-})
 app.get('/favorites', (req, res) => {
   var fav = favorites.display()
   api.getAll().then(data => {
