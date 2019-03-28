@@ -23,6 +23,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "shrink-ray-current": "^3.0.2",
+    "web-midi-api": "^2.0.3",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
