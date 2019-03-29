@@ -84,7 +84,7 @@ My next step was adding some functionality. I added a favorites function using c
 
 ![serviceworker](./images/serviceworker.png 'Screenshot application')
 
-After merging all the above together the biggest improvement was on the PWA(Progressive Web App) score. Some of the loading times increased a little because of the added clientside js.
+After merging all the above together the biggest improvement was on the PWA(Progressive Web App) score. Some of the loading times increased a little because of the added functionalities.
 
 ![final](./images/final_sw_pwa.png 'Screenshot application')
 
