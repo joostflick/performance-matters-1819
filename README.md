@@ -63,6 +63,7 @@ Beneath is a comparison of filesizes before/after minifying.
 Before
 
 ![original](./images/original.png 'Screenshot application')
+
 After
 
 ![minified](./images/minified.png 'Screenshot application')
