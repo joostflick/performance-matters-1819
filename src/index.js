@@ -8,6 +8,7 @@ const shrinkRay = require('shrink-ray-current')
 
 app.use(express.static(path.join(__dirname, '/public/')))
 
+// Code for https, doesn't work on localhost
 // app.use(function(request, response) {
 //   if (!request.secure) {
 //     response.redirect('https://' + request.headers.host + request.url)
@@ -92,9 +93,7 @@ app.get('/about', (req, res) => {
 })
 
 app.get('*', function(req, res) {
-  res
-    .status(404)
-    .send('404 - This page can not be found, maybe try something else?')
+  res.status(404).render('pages/404')
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
