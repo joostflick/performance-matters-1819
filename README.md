@@ -61,8 +61,10 @@ I started optimizing by trying to improve on filesize, so first I minified my fi
 Beneath is a comparison of filesizes before/after minifying.
 
 Before
+
 ![original](./images/original.png 'Screenshot application')
 After
+
 ![minified](./images/minified.png 'Screenshot application')
 
 Then I also turned on compression (brotli quality 4 gave me the best results after testing)
