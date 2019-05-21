@@ -16,7 +16,7 @@ self.addEventListener('install', event => {
   )
 })
 
-const offlineUrl = 'offline'
+const offlineUrl = '/offline'
 
 self.addEventListener('fetch', event => {
   console.log('Activating ' + event)
