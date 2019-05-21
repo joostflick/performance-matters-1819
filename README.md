@@ -88,6 +88,8 @@ After merging all the above together the biggest improvement was on the PWA(Prog
 
 ![final](./images/final_sw_pwa.png 'Screenshot application')
 
-  <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
-
 MIT license
+
+Service worker in deploy
+Service worker uitbreiden
+Read me aanvullen
