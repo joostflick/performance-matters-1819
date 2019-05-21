@@ -9,7 +9,7 @@ self.addEventListener('install', event => {
           '/offline',
           '/about',
           '/styles/style.css',
-          '/Ubuntu/Ubuntu-Regular.woff2'
+          '/Ubuntu/Ubuntu-regular.woff2'
         ])
       )
       .then(() => self.skipWaiting())
