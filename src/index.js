@@ -9,11 +9,13 @@ const shrinkRay = require('shrink-ray-current')
 app.use(express.static(path.join(__dirname, '/public/')))
 
 // Code for https, doesn't work on localhost
-// app.use(function(request, response) {
-//   if (!request.secure) {
-//     response.redirect('https://' + request.headers.host + request.url)
-//   }
-// })
+app.use(function(request, response) {
+  if (!request.secure) {
+    response.redirect('https://' + request.headers.host + request.url)
+  }
+})
+
+// Caching, unadvised because server shuffles everything
 // app.use((req, res, next) => {
 //   res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 * 60)
 //   next()
