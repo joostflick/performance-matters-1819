@@ -40,7 +40,7 @@ gulp.task('regsw', function() {
 // Send manifest to dist
 gulp.task('manifest', function() {
   return gulp
-    .src('./src/public/manifest/*.*')
+    .src(['./src/public/manifest/*', './src/public/manifest/*/*/*.*'])
     .pipe(gulp.dest('./dist/public/manifest'))
 })
 
