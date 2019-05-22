@@ -88,5 +88,9 @@ After merging all the above together the biggest improvement was on the PWA(Prog
 
 ![final](./images/final_sw_pwa.png 'Screenshot application')
 
+### Caching
+
+Currently caching for the home/details pages is off because the content of those pages gets shuffled everytime the server restarts, which messes with the cache.
+
 MIT license
 
