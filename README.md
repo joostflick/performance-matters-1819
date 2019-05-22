@@ -4,7 +4,7 @@
 
 ## Demo
 
-[Link to demo](https://insulter-performance-matters.herokuapp.com/)
+[Link to demo](https://insulter-performance.herokuapp.com/)
 
 <!-- ☝️ replace this description with a description of your own work -->
 
