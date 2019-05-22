@@ -90,6 +90,3 @@ After merging all the above together the biggest improvement was on the PWA(Prog
 
 MIT license
 
-Service worker in deploy
-Service worker uitbreiden
-Read me aanvullen
